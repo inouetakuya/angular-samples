@@ -1,0 +1,15 @@
+﻿<html ng-app>
+<head>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
+  <script>
+    function MyController($scope) {
+      $scope.myUnsafeHTMLContent = '<p style="color:blue">HTMLの断片 ' +
+        '<em onmouseover="this.textContent = \'やられた!\'">ここをクリック</em> ' +
+        'HTMLの断片</p>';
+    }
+  </script>
+<head>
+<body ng-controller='MyController'>
+  <p ng-bind="myUnsafeHTMLContent"></p>
+</body>
+</html>

@@ -1,0 +1,9 @@
+﻿<div><strong>件名:</strong> {{message.subject}}</div>
+<div><strong>送信者:</strong> {{message.sender}}</div>
+<div><strong>日時:</strong> {{message.date}}</div>
+<div>
+  <strong>宛先:</strong>
+  <span ng-repeat='recipient in message.recipients'>{{recipient}} </span>
+</div>
+<div>{{message.message}}</div>
+<a href='#/'>メッセージのリストに戻る</a>

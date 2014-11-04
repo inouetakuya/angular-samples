@@ -1,0 +1,15 @@
+﻿<html ng-app="myModule">
+<head>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular-sanitize.js"></script>
+  <script>
+    angular.module('myModule', ['ngSanitize']);
+    function MyController($scope) {
+      $scope.contents = 'リンクを含む文字列: http://angularjs.org/ mailto:us@there.org';
+    }
+  </script>
+<head>
+<body ng-controller='MyController'>
+  <div ng-bind-html="contents | linky"></div>
+</body>
+</html>

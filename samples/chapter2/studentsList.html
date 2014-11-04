@@ -1,0 +1,29 @@
+﻿<!doctype html>
+<html ng-app>
+  <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
+  </head>
+  <body>
+    <div ng-controller='StudentListController'>
+      <ul>
+        <li ng-repeat='student in students'>
+          <a ng-href='/student/view/{{student.id}}'>{{student.name}}</a>
+        </li>
+      </ul>
+      <button ng-click="insertTom()">追加</button>
+    </div>
+    <script>
+      var students = [{name:'メアリー・コントラリー', id:'1'},
+        {name:'ジャック・スプラット', id:'2'},
+        {name:'ジル・ヒル', id:'3'}];
+
+      function StudentListController($scope) {
+        $scope.students = students;
+
+        $scope.insertTom = function () {
+          $scope.students.splice(1, 0, {name:'トム・サム', id:'4'});
+        };
+      }
+    </script>
+  </body>
+</html>

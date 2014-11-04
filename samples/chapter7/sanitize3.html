@@ -1,0 +1,17 @@
+﻿<html ng-app="myModule">
+<head>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular-sanitize.js"></script>
+  <script>
+    angular.module('myModule', ['ngSanitize']);
+    function MyController($scope) {
+      $scope.myUnsafeHTMLContent = '<p style="color:blue">HTMLの断片 ' +
+        '<em onmouseover="this.textContent = \'やられた!\'">ここをクリック</em> ' +
+        'HTMLの断片</p>';
+    }
+  </script>
+<head>
+<body ng-controller='MyController'>
+  <p ng-bind-html-unsafe="myUnsafeHTMLContent"></p>
+</body>
+</html>

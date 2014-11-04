@@ -1,0 +1,24 @@
+﻿<!doctype html>
+<html ng-app>
+  <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
+  </head>
+  <body>
+    <table ng-controller='AlbumController'>
+      <tr ng-repeat='track in album'>
+        <td>{{$index + 1}}</td>
+        <td>{{track.name}}</td>
+        <td>{{track.duration}}</td>
+      </tr>
+    </table>
+    <script>
+      var album = [{name:'サウスウェスト・セレナーデ', duration: '2:34'},
+                   {name:'ノーザン・ライト・ワルツ', duration: '3:21'},
+                   {name:'イースタン・タンゴ', duration: '17:45'}];
+
+      function AlbumController($scope) {
+        $scope.album = album;
+      }
+    </script>
+  </body>
+</html>

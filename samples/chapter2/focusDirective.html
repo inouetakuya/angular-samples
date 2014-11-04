@@ -1,0 +1,40 @@
+﻿<!doctype html>
+<html lang='en' ng-app='app'>
+  <head>
+    <title>フォーカスの設定</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
+  </head>
+
+  <body ng-controller="SomeController">
+    <button ng-click="clickUnfocused()">
+      フォーカスなし
+    </button>
+    <button ngbk-focus ng-click="clickFocused()">
+      フォーカスあり!
+    </button>
+    <div>{{message.text}}</div>
+    <script>
+      function SomeController($scope) {
+        $scope.message = { text: 'クリックされていません' };
+
+        $scope.clickUnfocused = function() {
+          $scope.message.text = 'フォーカスなしのボタンがクリックされました';
+        };
+
+        $scope.clickFocused = function() {
+          $scope.message.text = 'フォーカスありのボタンがクリックされました';
+        };
+      }
+
+      var appModule = angular.module('app', []);
+
+      appModule.directive('ngbkFocus', function() {
+        return {
+          link: function(scope, element, attrs, controller) {
+            element[0].focus();
+          }
+        };
+      });
+    </script>
+  </body>
+</html>

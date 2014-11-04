@@ -1,0 +1,27 @@
+﻿<!doctype html>
+<html ng-app>
+  <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
+  </head>
+  <body>
+    <div ng-controller='DeathrayMenuController'>
+      <button ng-click='toggleMenu()'>メニューをトグル</button>
+      <ul ng-show='menuState.show'>
+        <li ng-click='stun()'>気絶</li>
+        <li ng-click='disintegrate()'>崩壊</li>
+        <li ng-click='erase()'>歴史から消去</li>
+      </ul>
+    </div>
+    <script>
+      function DeathrayMenuController($scope) {
+        $scope.menuState = { show: false };
+
+        $scope.toggleMenu = function() {
+          $scope.menuState.show = !$scope.menuState.show;
+        };
+
+        // death ray functions left as exercise to reader
+      }
+    </script>
+  </body>
+</html>
